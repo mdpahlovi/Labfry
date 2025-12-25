@@ -1,0 +1,43 @@
+import { Body, Controller, Post } from '@nestjs/common';
+import { ForgotPasswordDto, ResendCodeDto, ResetPasswordDto, SigninDto, SignupComplete, SignupDto, VerifyEmailDto } from './auth.dto';
+import { AuthService } from './auth.service';
+
+@Controller('auth')
+export class AuthController {
+    constructor(private readonly authService: AuthService) {}
+
+    @Post('signup')
+    async signup(@Body() signupDto: SignupDto) {
+        return this.authService.signup(signupDto);
+    }
+
+    @Post('signin')
+    async signin(@Body() signinDto: SigninDto) {
+        return this.authService.signin(signinDto);
+    }
+
+    @Post('verify-email')
+    async verifyEmail(@Body() verifyEmailDto: VerifyEmailDto) {
+        return this.authService.verifyEmail(verifyEmailDto);
+    }
+
+    @Post('signup-complete')
+    async signupComplete(@Body() signupCompleteDto: SignupComplete) {
+        return this.authService.signupComplete(signupCompleteDto);
+    }
+
+    @Post('forgot-password')
+    async forgotPassword(@Body() forgotPasswordDto: ForgotPasswordDto) {
+        return this.authService.forgotPassword(forgotPasswordDto);
+    }
+
+    @Post('reset-password')
+    async resetPassword(@Body() resetPasswordDto: ResetPasswordDto) {
+        return this.authService.resetPassword(resetPasswordDto);
+    }
+
+    @Post('resend-code')
+    async resendCode(@Body() resendCodeDto: ResendCodeDto) {
+        return this.authService.resendCode(resendCodeDto);
+    }
+}
