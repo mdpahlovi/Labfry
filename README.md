@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Labfry
 
-## Getting Started
+## 🔗 Live Demo
 
-First, run the development server:
+-   **Frontend:** [https://labfry-steel.vercel.app](https://labfry-steel.vercel.app)
+-   **Backend API:** [https://labfry.onrender.com](https://labfry.onrender.com)
+
+---
+
+## 📋 Project Overview
+
+A comprehensive authentication system with user management features.
+
+## 🛠️ Tech Stack
+
+| Layer    | Technologies                             |
+| -------- | ---------------------------------------- |
+| Backend  | TypeScript, NestJS, Prisma, PostgreSQL   |
+| Frontend | TypeScript, Next.js, TailwindCSS, Formik |
+
+---
+
+## 📡 API Endpoints
+
+| Method | Endpoint                       | Description              |
+| ------ | ------------------------------ | ------------------------ |
+| POST   | `/api/v1/auth/signup`          | Register a new user      |
+| POST   | `/api/v1/auth/signin`          | Login a user             |
+| POST   | `/api/v1/auth/verify-email`    | Verify user              |
+| POST   | `/api/v1/auth/signup-complete` | Complete signup          |
+| POST   | `/api/v1/auth/forgot-password` | Forgot password          |
+| POST   | `/api/v1/auth/reset-password`  | Reset password           |
+| POST   | `/api/v1/auth/resend-code`     | Resend verification code |
+
+---
+
+## ⚙️ Installation Steps
+
+### Prerequisites
+
+-   Node.js (LTS)
+-   Database connection string
+
+### Backend Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd backend
+npm install
+# Create .env file (see ENV section)
+npm run start:dev # Start Development Server
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Frontend Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd frontend
+npm install
+# Create .env file (see ENV section)
+npm run dev # Start Development Server
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🔐 ENV Variable Instructions
 
-To learn more about Next.js, take a look at the following resources:
+### Backend `.env`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+# SERVER ENV
+NODE_ENV=development
+PORT=5000
+API_PREFIX=api
+APP_VERSION=1.0.0
+ORIGIN=http://localhost:3000
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# DATABASE
+DATABASE_URL="..."
 
-## Deploy on Vercel
+# JWT
+JWT_SECRET='...'
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# EMAIL
+EMAIL_USER='...'
+EMAIL_PASS='...'
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Frontend `.env`
+
+```env
+NEXT_PUBLIC_SERVER='http://localhost:5000'
+```

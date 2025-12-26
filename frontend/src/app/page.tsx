@@ -1,6 +1,8 @@
 import Button from "@/components/ui/Button";
+import Logout from "@/components/ui/Logout";
+import Role from "@/components/ui/Role";
 import Image from "next/image";
-import Role from "../components/ui/Role";
+import Link from "next/link";
 
 export default function HomePage() {
     return (
@@ -10,39 +12,25 @@ export default function HomePage() {
                     <div className="flex justify-between items-center h-18">
                         <Image src="/logo.png" alt="Logo" width={118} height={50} />
                         <div className="flex items-center gap-4">
-                            <Button variant="outline">
-                                <svg
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                >
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="12" cy="7" r="4"></circle>
-                                </svg>
-                                <span>Profile</span>
-                            </Button>
-                            <Button variant="primary">
-                                <svg
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                >
-                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                                    <polyline points="16 17 21 12 16 7"></polyline>
-                                    <line x1="21" y1="12" x2="9" y2="12"></line>
-                                </svg>
-                                <span>Logout</span>
-                            </Button>
+                            <Link href="/profile">
+                                <Button variant="outline">
+                                    <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    <span>Profile</span>
+                                </Button>
+                            </Link>
+                            <Logout />
                         </div>
                     </div>
                 </div>
